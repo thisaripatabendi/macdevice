@@ -1,0 +1,11 @@
+
+{
+  "deviceType": {
+    "label": "macdevice",
+    "category": "virtual",
+    "downloadAgentUri": "macdevice/device/download",
+    "scopes" : [
+      "perm:macdevice:enroll"
+    ]
+  }
+}
