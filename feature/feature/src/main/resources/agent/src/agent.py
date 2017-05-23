@@ -119,8 +119,10 @@ def connectAndPushData():
     battery_level = float(iotUtils.BATTERY_LEVEL)
     battery_status = float(iotUtils.BATTERY_STATUS)
     cpuusage = float(iotUtils.CPU_USAGE)
+    memory_space = float(iotUtils.MEMORY_SPACE)
+    disk_space = float(iotUtils.DISK_SPACE)
 
-    PUSH_DATA = iotUtils.DEVICE_INFO.format(currentTime, battery_level, battery_status, cpuusage)
+    PUSH_DATA = iotUtils.DEVICE_INFO.format(currentTime, battery_level, battery_status, cpuusage, memory_space, disk_space)
 
     print ('~~~~~~~~~~~~~~~~~~~~~~~~ Publishing Device-Data ~~~~~~~~~~~~~~~~~~~~~~~~~')
     print ('PUBLISHED DATA: ' + PUSH_DATA)
@@ -138,6 +140,8 @@ def collectData():
     iotUtils.BATTERY_LEVEL = getBatteryLevel()
     iotUtils.BATTERY_STATUS = getBatteryStatus()
     iotUtils.CPU_USAGE = getCPUUsage()
+    iotUtils.MEMORY_SPACE = getMemorySpace()
+    iotUtils.DISK_SPACE = getDiskSpace()
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

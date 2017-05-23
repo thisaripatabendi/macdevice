@@ -22,10 +22,14 @@ var sensorType1 = "macdevicebatterylevel";
 var sensorType2 = "macdevicebatterystatus";
 //cpuusage
 var sensorType3 = "macdevicecpuusage";
+var sensorType4 = "macdevicememoryspace";
+var sensorType5 = "macdevicediskspace";
 var sensorType1Graph;
 var sensorType2Graph;
 //cpuusage
 var sensorType3Graph;
+var sensorType4Graph;
+var sensorType5Graph;
 
 function drawGraph_macdevice(from, to)
 {
@@ -89,6 +93,42 @@ function drawGraph_macdevice(from, to)
     };
 
     invokerUtil.get(backendApiUrl3, successCallback3, function (message) {
+        console.log(message);
+    });
+
+    var chart4 = "chartSensorType4";
+    var backendApiUrl4 = $("#" + chart4 + "").data("backend-api-url") + "?from=" + from + "&to=" + to
+            + "&sensorType=" + sensorType4;
+    var successCallback4 = function (data) {
+        dataset = JSON.parse(data);
+
+        //graph3
+        var graphConfigSensorType4 = getGraphConfig(dataset, sensorType4, "chartSensorType4");
+        sensorType4Graph = new Rickshaw.Graph(graphConfigSensorType4);
+        drawGraph(sensorType4Graph, "sensorType4yAxis", "sensorType4Slider", "sensorType4Legend", sensorType4
+            , graphConfigSensorType4, "chartSensorType4");
+
+    };
+
+    invokerUtil.get(backendApiUrl4, successCallback4, function (message) {
+        console.log(message);
+    });
+
+    var chart5 = "chartSensorType5";
+    var backendApiUrl5 = $("#" + chart5 + "").data("backend-api-url") + "?from=" + from + "&to=" + to
+            + "&sensorType=" + sensorType5;
+    var successCallback5 = function (data) {
+        dataset = JSON.parse(data);
+
+        //graph3
+        var graphConfigSensorType5 = getGraphConfig(dataset, sensorType5, "chartSensorType5");
+        sensorType5Graph = new Rickshaw.Graph(graphConfigSensorType5);
+        drawGraph(sensorType5Graph, "sensorType5yAxis", "sensorType5Slider", "sensorType5Legend", sensorType5
+            , graphConfigSensorType5, "chartSensorType5");
+
+    };
+
+    invokerUtil.get(backendApiUrl5, successCallback5, function (message) {
         console.log(message);
     });
 
@@ -161,8 +201,12 @@ function drawGraph_macdevice(from, to)
                     value = dataset[z].values.macdevicebatterylevel;
                 }else if (placeHolder == "chartSensorType2"){
                     value = dataset[z].values.macdevicebatterystatus;
-                }else{
+                }else if (placeHolder == "chartSensorType3"){
                     value = dataset[z].values.macdevicecpuusage;
+                }else if (placeHolder == "chartSensorType4"){
+                    value = dataset[z].values.macdevicememoryspace;
+                }else{
+                    value = dataset[z].values.macdevicediskspace;
                 }
 
                 value = parseFloat(value);value;

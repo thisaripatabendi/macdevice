@@ -33,6 +33,29 @@
         <div class="custom_x_axis">Time</div>
     </div>
 </div>
+
+<div id="div-chart-sensorType4" data-websocketurlStream="{{websocketEndpointForStream4}}" data-deviceID="{{device.deviceIdentifier}}">
+    <div class="chartWrapper" id="chartWrapper">
+        <div id="yAxisSensorType4" class="custom_y_axis">memory space (MB)</div>
+        <div class="legend_container">
+            <div id="smoother" title="Smoothing"></div>
+            <div id="legend"></div>
+        </div>
+        <div id="chartSensorType4" class="custom_rickshaw_graph"></div>
+        <div class="custom_x_axis">Time</div>
+    </div>
+</div>
+<div id="div-chart-sensorType5" data-websocketurlStream="{{websocketEndpointForStream5}}" data-deviceID="{{device.deviceIdentifier}}">
+    <div class="chartWrapper" id="chartWrapper">
+        <div id="yAxisSensorType5" class="custom_y_axis">disk space (GB)</div>
+        <div class="legend_container">
+            <div id="smoother" title="Smoothing"></div>
+            <div id="legend"></div>
+        </div>
+        <div id="chartSensorType5" class="custom_rickshaw_graph"></div>
+        <div class="custom_x_axis">Time</div>
+    </div>
+</div>
 <a class="padding-left"
    href="{{@app.context}}/device/{{device.type}}/analytics?deviceId={{device.deviceIdentifier}}
    &deviceName={{device.name}}">

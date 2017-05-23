@@ -36,11 +36,15 @@ public class DeviceTypeConstants {
     public static final String SENSOR_TYPE1_EVENT_TABLE = "ORG_WSO2_IOT_DEVICES_MACDEVICEBATTERYLEVEL";
     public static final String SENSOR_TYPE2_EVENT_TABLE = "ORG_WSO2_IOT_DEVICES_MACDEVICEBATTERYSTATUS";
     public static final String SENSOR_TYPE3_EVENT_TABLE = "ORG_WSO2_IOT_DEVICES_MACDEVICECPUUSAGE";
+    public static final String SENSOR_TYPE4_EVENT_TABLE = "ORG_WSO2_IOT_DEVICES_MACDEVICEMEMORYSPACE";
+    public static final String SENSOR_TYPE5_EVENT_TABLE = "ORG_WSO2_IOT_DEVICES_MACDEVICEDISKSPACE";
     public static final String DATA_SOURCE_NAME = "jdbc/macdeviceDM_DB";
     public final static String DEVICE_TYPE_PROVIDER_DOMAIN = "carbon.super";
     public final static String SENSOR_TYPE1 = "macdevicebatterylevel";
     public final static String SENSOR_TYPE2 = "macdevicebatterystatus";
     public final static String SENSOR_TYPE3 = "macdevicecpuusage";
+    public final static String SENSOR_TYPE4 = "macdevicememoryspace";
+    public final static String SENSOR_TYPE5 = "macdevicediskspace";
 
     //mqtt tranport related constants
     public static final String MQTT_ADAPTER_NAME = "macdevicebatterylevel_mqtt";

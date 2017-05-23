@@ -12,7 +12,9 @@
   "payloadData": [
     {"name": "macdevicebatterylevel","type": "FLOAT"},
     {"name": "macdevicebatterystatus", "type": "FLOAT"},
-    {"name": "macdevicecpuusage", "type": "FLOAT"}
+    {"name": "macdevicecpuusage", "type": "FLOAT"},
+    {"name": "macdevicememoryspace", "type": "FLOAT"},
+    {"name": "macdevicediskspace", "type": "FLOAT"}
   ]
 }
 

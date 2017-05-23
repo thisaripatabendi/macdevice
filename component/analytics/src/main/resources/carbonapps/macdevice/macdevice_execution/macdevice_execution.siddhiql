@@ -7,7 +7,7 @@
 /* define streams/tables and write queries here ... */
 
 @Import('org.wso2.iot.macdevice:1.0.0')
-define stream macdevice (meta_owner string, meta_deviceId string, meta_deviceName string, meta_time long, macdevicebatterylevel float, macdevicebatterystatus float, macdevicecpuusage float);
+define stream macdevice (meta_owner string, meta_deviceId string, meta_deviceName string, meta_time long, macdevicebatterylevel float, macdevicebatterystatus float, macdevicecpuusage float, macdevicememoryspace float, macdevicediskspace float);
 
 @Export('org.wso2.iot.devices.macdevicebatterylevel:1.0.0')
 define stream macdevicebatterylevel (meta_owner string, meta_deviceType string, meta_deviceId string, meta_deviceName string, meta_time long, macdevicebatterylevel float);
@@ -17,6 +17,12 @@ define stream macdevicebatterystatus (meta_owner string, meta_deviceType string,
 
 @Export('org.wso2.iot.devices.macdevicecpuusage:1.0.0')
 define stream macdevicecpuusage (meta_owner string, meta_deviceType string, meta_deviceId string, meta_deviceName string, meta_time long, macdevicecpuusage float);
+
+@Export('org.wso2.iot.devices.macdevicememoryspace:1.0.0')
+define stream macdevicememoryspace (meta_owner string, meta_deviceType string, meta_deviceId string, meta_deviceName string, meta_time long, macdevicememoryspace float);
+
+@Export('org.wso2.iot.devices.macdevicediskspace:1.0.0')
+define stream macdevicediskspace (meta_owner string, meta_deviceType string, meta_deviceId string, meta_deviceName string, meta_time long, macdevicediskspace float);
 
 from macdevice
 select meta_owner, 'macdevice' as meta_deviceType, meta_deviceId, meta_deviceName, meta_time * 1000 as meta_time, macdevicebatterylevel
@@ -29,6 +35,14 @@ insert into macdevicebatterystatus;
 from macdevice
 select meta_owner, 'macdevice' as meta_deviceType, meta_deviceId, meta_deviceName, meta_time * 1000 as meta_time, macdevicecpuusage
 insert into macdevicecpuusage;
+
+from macdevice
+select meta_owner, 'macdevice' as meta_deviceType, meta_deviceId, meta_deviceName, meta_time * 1000 as meta_time, macdevicememoryspace
+insert into macdevicememoryspace;
+
+from macdevice
+select meta_owner, 'macdevice' as meta_deviceType, meta_deviceId, meta_deviceName, meta_time * 1000 as meta_time, macdevicediskspace
+insert into macdevicediskspace;
 
 
 

@@ -91,6 +91,17 @@ def getCPUUsage():
     cpuusage = total / count
     return cpuusage
 
+def getMemorySpace():
+
+    virtual_available = psutil.virtual_memory().available
+    swap_available = psutil.swap_memory().free
+    memory_space = (virtual_available + swap_available) / 1000000
+    return "%.2f" % round(memory_space, 2)
+
+def getDiskSpace():
+
+    disk_space = psutil.disk_usage('/').free / 1000000000
+    return float(disk_space)
 
 def random_battery_level():
     bat_level = random.randint(1, 99)

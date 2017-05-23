@@ -44,11 +44,15 @@ function onRequest(context) {
 	var websocketEndpointForStream1 = "wss://localhost:9445/outputwebsocket/EventPublisher_macdevicebatterylevel";
 	var websocketEndpointForStream2 = "wss://localhost:9445/outputwebsocket/EventPublisher_macdevicebatterystatus";
 	var websocketEndpointForStream3 = "wss://localhost:9445/outputwebsocket/EventPublisher_macdevicecpuusage";
+	var websocketEndpointForStream4 = "wss://localhost:9445/outputwebsocket/EventPublisher_macdevicememoryspace";
+	var websocketEndpointForStream5 = "wss://localhost:9445/outputwebsocket/EventPublisher_macdevicediskspace";
 
 	return {
 		"device": device,
 		"websocketEndpointForStream1": websocketEndpointForStream1,
 		"websocketEndpointForStream2": websocketEndpointForStream2,
-		"websocketEndpointForStream3": websocketEndpointForStream3
+		"websocketEndpointForStream3": websocketEndpointForStream3,
+		"websocketEndpointForStream4": websocketEndpointForStream4,
+		"websocketEndpointForStream5": websocketEndpointForStream5
 	};
 }

@@ -59,6 +59,33 @@
         <div id="sensorType3Slider" class="custom_slider"></div>
     </div>
 </div>
+
+<div id="chartDivSensorType4">
+    <div class="chartWrapper" id="chartWrapper">
+        <span id="sensorType4Title">memory space (MB)</span>
+        <div id="sensorType4yAxis" class="custom_y_axis"></div>
+        <div class="legend_container">
+            <div id="smoother" title="Smoothing"></div>
+            <div id="sensorType4Legend"></div>
+        </div>
+        <div id="chartSensorType4" class="custom_rickshaw_graph" data-backend-api-url = {{backendApiUri}}></div>
+        <div id="sensorType4xAxis" class="custom_x_axis"></div>
+        <div id="sensorType4Slider" class="custom_slider"></div>
+    </div>
+</div>
+<div id="chartDivSensorType5">
+    <div class="chartWrapper" id="chartWrapper">
+        <span id="sensorType5Title">disk space (GB)</span>
+        <div id="sensorType5yAxis" class="custom_y_axis"></div>
+        <div class="legend_container">
+            <div id="smoother" title="Smoothing"></div>
+            <div id="sensorType5Legend"></div>
+        </div>
+        <div id="chartSensorType5" class="custom_rickshaw_graph" data-backend-api-url = {{backendApiUri}}></div>
+        <div id="sensorType5xAxis" class="custom_x_axis"></div>
+        <div id="sensorType5Slider" class="custom_slider"></div>
+    </div>
+</div>
 {{#zone "bottomJs"}}
     {{js "js/devicetype-graph.js"}}
 {{/zone}}
