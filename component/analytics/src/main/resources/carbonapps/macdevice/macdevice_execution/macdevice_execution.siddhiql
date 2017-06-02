@@ -7,7 +7,7 @@
 /* define streams/tables and write queries here ... */
 
 @Import('org.wso2.iot.macdevice:1.0.0')
-define stream macdevice (meta_owner string, meta_deviceId string, meta_deviceName string, meta_time long, macdevicebatterylevel float, macdevicebatterystatus float, macdevicecpuusage float, macdevicememoryspace float, macdevicediskspace float);
+define stream macdevice (meta_owner string, meta_deviceId string, meta_deviceName string, meta_time long, macdevicebatterylevel float, macdevicebatterystatus float, macdevicecpuusage float, macdevicememoryspace float, macdevicediskspace float, macdeviceloadaverage float);
 
 @Export('org.wso2.iot.devices.macdevicebatterylevel:1.0.0')
 define stream macdevicebatterylevel (meta_owner string, meta_deviceType string, meta_deviceId string, meta_deviceName string, meta_time long, macdevicebatterylevel float);
@@ -23,6 +23,9 @@ define stream macdevicememoryspace (meta_owner string, meta_deviceType string, m
 
 @Export('org.wso2.iot.devices.macdevicediskspace:1.0.0')
 define stream macdevicediskspace (meta_owner string, meta_deviceType string, meta_deviceId string, meta_deviceName string, meta_time long, macdevicediskspace float);
+
+@Export('org.wso2.iot.devices.macdeviceloadaverage:1.0.0')
+define stream macdeviceloadaverage (meta_owner string, meta_deviceType string, meta_deviceId string, meta_deviceName string, meta_time long, macdeviceloadaverage float);
 
 from macdevice
 select meta_owner, 'macdevice' as meta_deviceType, meta_deviceId, meta_deviceName, meta_time * 1000 as meta_time, macdevicebatterylevel
@@ -43,6 +46,11 @@ insert into macdevicememoryspace;
 from macdevice
 select meta_owner, 'macdevice' as meta_deviceType, meta_deviceId, meta_deviceName, meta_time * 1000 as meta_time, macdevicediskspace
 insert into macdevicediskspace;
+
+from macdevice
+select meta_owner, 'macdevice' as meta_deviceType, meta_deviceId, meta_deviceName, meta_time * 1000 as meta_time, macdeviceloadaverage
+insert into macdeviceloadaverage;
+
 
 
 

@@ -21,16 +21,19 @@ var wsConnection2;
 var wsConnection3;
 var wsConnection4;
 var wsConnection5;
+var wsConnection6;
 var graphForSensorType1;
 var graphForSensorType2;
 var graphForSensorType3;
 var graphForSensorType4;
 var graphForSensorType5;
+var graphForSensorType6;
 var chartDataSensorType1 = [];
 var chartDataSensorType2 = [];
 var chartDataSensorType3 = [];
 var chartDataSensorType4 = [];
 var chartDataSensorType5 = [];
+var chartDataSensorType6 = [];
 var palette = new Rickshaw.Color.Palette({scheme: "classic9"});
 function drawGraph(wsConnection, placeHolder, yAxis, chat, chartData, graph) {
     var tNow = new Date().getTime() / 1000;
@@ -95,6 +98,8 @@ $(window).load(function () {
         , graphForSensorType4);
     drawGraph(wsConnection5, "#div-chart-sensorType5", "yAxisSensorType5", "chartSensorType5", chartDataSensorType5
         , graphForSensorType5);
+    drawGraph(wsConnection6, "#div-chart-sensorType6", "yAxisSensorType6", "chartSensorType6", chartDataSensorType6
+        , graphForSensorType6);
 });
 
 $(window).unload(function () {
@@ -103,6 +108,7 @@ $(window).unload(function () {
     disconnect(wsConnection3);
     disconnect(wsConnection4);
     disconnect(wsConnection5);
+    disconnect(wsConnection6);
 });
 
 //websocket connection
@@ -130,8 +136,10 @@ function connect(wsConnection, target, chartData, graph, deviceId) {
                     value = dataPoint.event.payloadData.macdevicecpuusage;
                 }else if (dataPoint.event.payloadData.macdevicememoryspace !== undefined){
                     value = dataPoint.event.payloadData.macdevicememoryspace;
-                }else {
+                }else if (dataPoint.event.payloadData.macdevicediskspace !== undefined){
                     value = dataPoint.event.payloadData.macdevicediskspace;
+                }else {
+                    value = dataPoint.event.payloadData.macdeviceloadaverage;
                 }
 
                 chartData.push({

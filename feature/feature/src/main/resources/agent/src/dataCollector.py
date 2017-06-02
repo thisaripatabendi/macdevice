@@ -103,6 +103,13 @@ def getDiskSpace():
     disk_space = psutil.disk_usage('/').free / 1000000000
     return float(disk_space)
 
+def getLoadAverage():
+
+    average = os.getloadavg()
+    load_avg = float(str(average).split(", ")[0].replace("(", ""))
+    return "%.2f" % round(load_avg, 2)
+
+
 def random_battery_level():
     bat_level = random.randint(1, 99)
     return bat_level

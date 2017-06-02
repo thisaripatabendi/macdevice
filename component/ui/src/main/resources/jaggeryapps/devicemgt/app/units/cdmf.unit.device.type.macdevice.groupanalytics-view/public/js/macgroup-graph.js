@@ -24,12 +24,14 @@ var sensorType2 = "macdevicebatterystatus";
 var sensorType3 = "macdevicecpuusage";
 var sensorType4 = "macdevicememoryspace";
 var sensorType5 = "macdevicediskspace";
+var sensorType6 = "macdeviceloadaverage";
 var sensorType1Graph;
 var sensorType2Graph;
 //cpuusage
 var sensorType3Graph;
 var sensorType4Graph;
 var sensorType5Graph;
+var sensorType6Graph;
 
 function drawGraph_macdevice(from, to)
 {
@@ -102,7 +104,7 @@ function drawGraph_macdevice(from, to)
     var successCallback4 = function (data) {
         dataset = JSON.parse(data);
 
-        //graph3
+        //graph4
         var graphConfigSensorType4 = getGraphConfig(dataset, sensorType4, "chartSensorType4");
         sensorType4Graph = new Rickshaw.Graph(graphConfigSensorType4);
         drawGraph(sensorType4Graph, "sensorType4yAxis", "sensorType4Slider", "sensorType4Legend", sensorType4
@@ -120,7 +122,7 @@ function drawGraph_macdevice(from, to)
     var successCallback5 = function (data) {
         dataset = JSON.parse(data);
 
-        //graph3
+        //graph5
         var graphConfigSensorType5 = getGraphConfig(dataset, sensorType5, "chartSensorType5");
         sensorType5Graph = new Rickshaw.Graph(graphConfigSensorType5);
         drawGraph(sensorType5Graph, "sensorType5yAxis", "sensorType5Slider", "sensorType5Legend", sensorType5
@@ -131,6 +133,25 @@ function drawGraph_macdevice(from, to)
     invokerUtil.get(backendApiUrl5, successCallback5, function (message) {
         console.log(message);
     });
+
+    var chart6 = "chartSensorType6";
+    var backendApiUrl6 = $("#" + chart6 + "").data("backend-api-url") + "?from=" + from + "&to=" + to
+            + "&sensorType=" + sensorType6;
+    var successCallback6 = function (data) {
+        dataset = JSON.parse(data);
+
+        //graph6
+        var graphConfigSensorType6 = getGraphConfig(dataset, sensorType6, "chartSensorType6");
+        sensorType6Graph = new Rickshaw.Graph(graphConfigSensorType6);
+        drawGraph(sensorType6Graph, "sensorType6yAxis", "sensorType6Slider", "sensorType6Legend", sensorType6
+            , graphConfigSensorType6, "chartSensorType6");
+
+    };
+
+    invokerUtil.get(backendApiUrl6, successCallback6, function (message) {
+        console.log(message);
+    });
+
 
     function getGraphConfig(dataset, sensorType, placeHolder) {
         return {
@@ -205,8 +226,10 @@ function drawGraph_macdevice(from, to)
                     value = dataset[z].values.macdevicecpuusage;
                 }else if (placeHolder == "chartSensorType4"){
                     value = dataset[z].values.macdevicememoryspace;
-                }else{
+                }else if (placeHolder == "chartSensorType5"){
                     value = dataset[z].values.macdevicediskspace;
+                }else{
+                    value = dataset[z].values.macdeviceloadaverage;
                 }
 
                 value = parseFloat(value);value;

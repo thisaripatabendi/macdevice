@@ -121,8 +121,9 @@ def connectAndPushData():
     cpuusage = float(iotUtils.CPU_USAGE)
     memory_space = float(iotUtils.MEMORY_SPACE)
     disk_space = float(iotUtils.DISK_SPACE)
+    load_average = float(iotUtils.LOAD_AVERAGE)
 
-    PUSH_DATA = iotUtils.DEVICE_INFO.format(currentTime, battery_level, battery_status, cpuusage, memory_space, disk_space)
+    PUSH_DATA = iotUtils.DEVICE_INFO.format(currentTime, battery_level, battery_status, cpuusage, memory_space, disk_space, load_average)
 
     print ('~~~~~~~~~~~~~~~~~~~~~~~~ Publishing Device-Data ~~~~~~~~~~~~~~~~~~~~~~~~~')
     print ('PUBLISHED DATA: ' + PUSH_DATA)
@@ -142,6 +143,7 @@ def collectData():
     iotUtils.CPU_USAGE = getCPUUsage()
     iotUtils.MEMORY_SPACE = getMemorySpace()
     iotUtils.DISK_SPACE = getDiskSpace()
+    iotUtils.LOAD_AVERAGE = getLoadAverage()
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

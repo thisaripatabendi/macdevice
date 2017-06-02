@@ -26,6 +26,7 @@
     <property name="sensorType4_dir" value="macdevice"/>
     <property name="sensorType5_dir" value="macdevicememoryspace"/>
     <property name="sensorType6_dir" value="macdevicediskspace"/>
+    <property name="sensorType7_dir" value="macdeviceloadaverage"/>
     <target name="clean">
         <delete dir="${target-dir}" />
     </target>
@@ -48,6 +49,9 @@
         </zip>
         <zip destfile="${target-dir}/${sensorType6_dir}.car">
             <zipfileset dir="${src-dir}/${sensorType6_dir}"/>
+        </zip>
+        <zip destfile="${target-dir}/${sensorType7_dir}.car">
+            <zipfileset dir="${src-dir}/${sensorType7_dir}"/>
         </zip>
     </target>
 </project>

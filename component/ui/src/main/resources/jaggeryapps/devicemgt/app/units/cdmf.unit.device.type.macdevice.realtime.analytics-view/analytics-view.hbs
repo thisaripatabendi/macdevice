@@ -56,6 +56,17 @@
         <div class="custom_x_axis">Time</div>
     </div>
 </div>
+<div id="div-chart-sensorType6" data-websocketurlStream="{{websocketEndpointForStream6}}" data-deviceID="{{device.deviceIdentifier}}">
+    <div class="chartWrapper" id="chartWrapper">
+        <div id="yAxisSensorType6" class="custom_y_axis">load average</div>
+        <div class="legend_container">
+            <div id="smoother" title="Smoothing"></div>
+            <div id="legend"></div>
+        </div>
+        <div id="chartSensorType6" class="custom_rickshaw_graph"></div>
+        <div class="custom_x_axis">Time</div>
+    </div>
+</div>
 <a class="padding-left"
    href="{{@app.context}}/device/{{device.type}}/analytics?deviceId={{device.deviceIdentifier}}
    &deviceName={{device.name}}">

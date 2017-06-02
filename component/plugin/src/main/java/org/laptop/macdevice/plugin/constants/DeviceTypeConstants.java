@@ -38,6 +38,7 @@ public class DeviceTypeConstants {
     public static final String SENSOR_TYPE3_EVENT_TABLE = "ORG_WSO2_IOT_DEVICES_MACDEVICECPUUSAGE";
     public static final String SENSOR_TYPE4_EVENT_TABLE = "ORG_WSO2_IOT_DEVICES_MACDEVICEMEMORYSPACE";
     public static final String SENSOR_TYPE5_EVENT_TABLE = "ORG_WSO2_IOT_DEVICES_MACDEVICEDISKSPACE";
+    public static final String SENSOR_TYPE6_EVENT_TABLE = "ORG_WSO2_IOT_DEVICES_MACDEVICELOADAVERAGE";
     public static final String DATA_SOURCE_NAME = "jdbc/macdeviceDM_DB";
     public final static String DEVICE_TYPE_PROVIDER_DOMAIN = "carbon.super";
     public final static String SENSOR_TYPE1 = "macdevicebatterylevel";
@@ -45,6 +46,7 @@ public class DeviceTypeConstants {
     public final static String SENSOR_TYPE3 = "macdevicecpuusage";
     public final static String SENSOR_TYPE4 = "macdevicememoryspace";
     public final static String SENSOR_TYPE5 = "macdevicediskspace";
+    public final static String SENSOR_TYPE6 = "macdeviceloadaverage";
 
     //mqtt tranport related constants
     public static final String MQTT_ADAPTER_NAME = "macdevicebatterylevel_mqtt";
@@ -75,6 +77,18 @@ public class DeviceTypeConstants {
 
     public final static String SENSOR_TYPE2_STREAM_DEFINITION = "org.wso2.iot.devices.macdevicebatterystatus";
     public final static String SENSOR_TYPE2_STREAM_DEFINITION_VERSION = "1.0.0";
+
+    public final static String SENSOR_TYPE3_STREAM_DEFINITION = "org.wso2.iot.devices.macdevicecpuusage";
+    public final static String SENSOR_TYPE3_STREAM_DEFINITION_VERSION = "1.0.0";
+
+    public final static String SENSOR_TYPE4_STREAM_DEFINITION = "org.wso2.iot.devices.macdevicememoryspace";
+    public final static String SENSOR_TYPE4_STREAM_DEFINITION_VERSION = "1.0.0";
+
+    public final static String SENSOR_TYPE5_STREAM_DEFINITION = "org.wso2.iot.devices.macdevicediskspace";
+    public final static String SENSOR_TYPE5_STREAM_DEFINITION_VERSION = "1.0.0";
+
+    public final static String SENSOR_TYPE6_STREAM_DEFINITION = "org.wso2.iot.devices.macdeviceloadaverage";
+    public final static String SENSOR_TYPE6_STREAM_DEFINITION_VERSION = "1.0.0";
 
     public static final String MQTT_CONFIG_LOCATION = CarbonUtils.getEtcCarbonConfigDirPath() + File.separator
             + "mqtt.properties";
